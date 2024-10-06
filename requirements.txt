@@ -9,3 +9,4 @@ corsheaders>=3.0,<4.0
 requests
 djangorestframework-simplejwt
 djangorestframework
+
