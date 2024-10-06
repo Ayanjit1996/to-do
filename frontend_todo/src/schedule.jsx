@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import TaskCard from './cards';
 import TaskForm from './task_form';
+import React, { useState } from 'react';
 
 function Schedule({ taskList }) {
     const [showModal, setShowModal] = useState(false);

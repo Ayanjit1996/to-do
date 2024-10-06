@@ -20,7 +20,7 @@ function TaskForm({ setShowModal }) {
         setIsSubmitting(true);
         try {
             const response = await MakeAuthenticatedRequest(
-                "http://127.0.0.1:8000/create/",
+                'http://13.49.66.75/api/create/',
                 'POST',
                 { ...task },
                 true
