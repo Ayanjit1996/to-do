@@ -1,0 +1,7 @@
+Django>=3.2,<4.0
+psycopg2-binary>=2.9,<3.0
+aiofiles
+asgiref>=3.8.1
+djangorestframework
+django-cors-headers
+pymongo==3.12.0
