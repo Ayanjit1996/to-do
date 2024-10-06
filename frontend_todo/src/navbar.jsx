@@ -1,10 +1,11 @@
 import { MakeAuthenticatedRequest } from './APIHelper';
+import React, { useState } from 'react';
 
 function Navbar({ signup, signin, signoff, toggleSignup, toggleSignin, setIsLoggedIn, setSignoff, setSignin, setSignup, setLanding }) {
 
     const handleLogout = async () => {
         try {
-            const logout = MakeAuthenticatedRequest('http://127.0.0.1:8000/logout/','DELETE')
+            const logout = MakeAuthenticatedRequest('http://13.49.66.75/api/logout/','DELETE')
             localStorage.removeItem('access_token');
             localStorage.removeItem('refresh_token');
             console.log(logout)

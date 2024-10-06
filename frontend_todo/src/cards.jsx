@@ -51,7 +51,7 @@ function CollapsibleCard({ task }) {
 
     const fetchDetail = async (taskId) => {
         try {
-            const response = await MakeAuthenticatedRequest(`http://127.0.0.1:8000/view/${taskId}/`, 'GET');
+            const response = await MakeAuthenticatedRequest(`http://13.49.66.75/api/view/${taskId}/`, 'GET');
             if (response.status === 200) {
                 setDetail(response.data);
                 updateTaskState(response.data);
@@ -66,7 +66,7 @@ function CollapsibleCard({ task }) {
 
     const handleDeleteTask = async () => {
         try {
-            const response = await MakeAuthenticatedRequest(`http://127.0.0.1:8000/delete/`, 'DELETE', {
+            const response = await MakeAuthenticatedRequest(`http://13.49.66.75/api/delete/`, 'DELETE', {
                 task_id: task.task_id
             });
             
@@ -101,7 +101,7 @@ function CollapsibleCard({ task }) {
                 task_done: done // Include done state in update
             };
             setShowCalendar(false);
-            const response = await MakeAuthenticatedRequest(`http://127.0.0.1:8000/update/`, 'PUT', updatedData);
+            const response = await MakeAuthenticatedRequest(`http://13.49.66.75/api/update/`, 'PUT', updatedData);
             if (response.status === 200) {
                 console.log("Task updated successfully:", response.data);
                 setIsEditing(false);

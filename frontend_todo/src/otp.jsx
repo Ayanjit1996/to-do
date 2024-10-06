@@ -11,7 +11,7 @@ function OtpModal({ isOpen, onClose, Id }) {
 
         try {
 
-            const response = await MakeAuthenticatedRequest('http://localhost:8000/verify-otp/', 'POST', {
+            const response = await MakeAuthenticatedRequest('http://13.49.66.75/api/verify-otp/', 'POST', {
                 otp: otp,
                 cred: Id
             },false);

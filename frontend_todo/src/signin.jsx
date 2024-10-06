@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useState } from "react";
 import { MakeAuthenticatedRequest } from "./APIHelper";
 
@@ -37,7 +36,7 @@ function Signin({ setOtpModalOpen, setId }) {
             };
 
             const response = await MakeAuthenticatedRequest(
-                'http://127.0.0.1:8000/login/',
+                'http://13.49.66.75/api/login/',
                 'POST',
                 loginData,
                 false

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { MakeAuthenticatedRequest } from './APIHelper';
+import React, { useState } from 'react';
 
 function Signup({ setOtpModalOpen, setId }) {
     const [clickDisable, setClickDisable] = useState(false);
@@ -34,7 +35,7 @@ function Signup({ setOtpModalOpen, setId }) {
             setId(formData.email);
 
             const response = await MakeAuthenticatedRequest(
-                'http://127.0.0.1:8000/signup/',
+                'http://13.49.66.75/api/signup/',
                 'post',
                 formData,
                 false

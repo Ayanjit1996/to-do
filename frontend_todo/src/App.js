@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import OtpModal from './otp';
 import Homeview from './homeview';
 import { MakeAuthenticatedRequest } from './APIHelper';
+import React, { useState } from 'react';
 
 function App() {
     const [signup, setSignup] = useState(false);
@@ -20,7 +21,7 @@ function App() {
 
     const checkAuthStatus = async () => {
         try {
-            const response = await MakeAuthenticatedRequest('http://127.0.0.1:8000/');
+            const response = await MakeAuthenticatedRequest('http://13.49.66.75/api');
             if (response.status === 200) {
                 setIsLoggedIn(true);
                 setSignoff(true);

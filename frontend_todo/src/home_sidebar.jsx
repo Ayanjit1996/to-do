@@ -12,7 +12,7 @@ function Sidebar({ setRefresh }) {
 
     const getPersonalinfo = async () => {
         try {
-            const response = await MakeAuthenticatedRequest('http://127.0.0.1:8000/info');
+            const response = await MakeAuthenticatedRequest('http://13.49.66.75/api/info');
             if (response.status === 200) {
                 setUserProfile(response.data);
             } else {
@@ -26,7 +26,7 @@ function Sidebar({ setRefresh }) {
     const deleteProfile = async () => {
         setIsDeleting(true);
         try {
-            const response = await MakeAuthenticatedRequest('http://127.0.0.1:8000/deleteuser/', 'DELETE');
+            const response = await MakeAuthenticatedRequest('http://13.49.66.75/api/deleteuser/', 'DELETE');
 
             if (response.status === 200) {
                 localStorage.removeItem('access_token');
