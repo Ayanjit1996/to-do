@@ -1,0 +1,419 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.main_div{
+  display: flex;
+  position: relative;
+}
+
+.border{
+  border: solid black 1px !important;
+}
+
+.custom_signup{
+  position: relative;
+  width: 40%;
+  padding: 2%;
+  scale: 0.9;
+  border-radius: 20px;
+  background-color: rgb(255, 251, 251);
+  box-shadow: 
+  0 0 8px rgba(76, 0, 130, 0.663),
+  0 0 10px rgba(238, 130, 238, 0.681);
+}
+
+.custom_signin{
+  position: relative;
+  width: 40%;
+  margin-top: 15%;
+  padding: 2%;
+  height: 20%;
+  scale: 0.9;
+  border-radius: 20px;
+  background-color: rgb(255, 251, 251);
+  box-shadow: 
+  0 0 8px rgba(76, 0, 130, 0.663),
+  0 0 10px rgba(238, 130, 238, 0.681);
+} 
+.custom_banner{
+  position: relative;
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  background-color: #f9f3e5;
+  height: 91vh;
+}
+.brand {
+  color: rgb(128, 128, 251);
+}
+
+.brand-sub{
+  color: rgb(254, 76, 76);
+}
+
+/* OTP------------------------------------- */
+
+/* OtpModal.css */
+.otp-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.652); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; 
+}
+
+.otp-modal {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  width: 500px; 
+  text-align: center;
+}
+
+.otp-modal input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* homeview */
+.homeview{
+  display: flex;
+
+}
+
+/* Sidebar Profile -------------------------------- */
+
+.sidebar {
+  width: 15%;
+  height: 91.6vh;
+  background-color: #ffa4a4;
+  color: rgb(0, 0, 0);
+  align-items: center;
+  padding-top: 20px;
+}
+
+.profile-pic {
+  width: 150px; 
+  height: 150px;
+  border-radius: 50%; 
+  overflow: hidden;
+  margin-bottom: 15px;
+  border: #000000 solid 1px;
+}
+
+.profile-pic img {
+  width: 100%; 
+  height: auto;
+}
+
+.user-info {
+  width: 100%;
+  text-align: left;
+  padding-top: 10px;
+  background-color: #ffe1e1;
+}
+
+.name {
+  margin: 0; 
+  font-size: 1.5rem; 
+  padding: 5%;
+  background-color: #000000;
+  color: white;
+  font-weight: bolder;
+}
+
+.username, .email {
+  margin-top: 5px;
+  padding-left: 5%;
+  font-size: 1rem;
+  color: #f7f3f3;
+  background-color: #000000;
+}
+
+.settings {
+  margin-top: 170%; 
+  margin-left: 80%;
+  cursor: pointer;
+}
+
+/* Calender ----------------------------------------- */
+
+.calendar-view-container {
+  width: 250px; 
+  border: 1px solid #ccc; 
+  border-radius: 8px; 
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+  background-color: white; 
+  margin-top: 10px; 
+  z-index: 1000; 
+  width: 50%; 
+  max-width: 400px; 
+  transform: scale(0.8); 
+  transform-origin: top left;
+}
+
+
+/* schedule ------------------------------------------------ */
+
+.schedule{
+  width: 85%;
+  /* background-color: #ffe1e1; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  justify-items: center;
+}
+
+.create_div{
+  padding: 10px;
+  display: flex;
+  background-color: rgb(255, 255, 255);
+}
+
+.create_div button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.tag{
+  width: 95%;
+  font-size: larger;
+  font-weight: bolder;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: end;
+}
+.add_div{
+  width: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 1%;
+}
+
+.add_div button img {
+  display: block;
+  width: 40px; 
+  height: 40px;
+}
+
+.list_div {
+  height: 80vh;           
+  padding: 10px;          
+  overflow-y: auto;       
+  overflow-x: hidden;     
+}
+
+/* cards------------------------------- */
+.card {
+  border: 1px solid #8e5d5d;
+  border-radius: 8px;
+  margin: 15px;
+  padding: 10px;
+  transition: box-shadow 1s ease, max-height 1s ease, padding 1s ease;
+  overflow: hidden;
+  max-height: 100px;
+  background-color: rgb(254, 235, 235);
+}
+
+.card.open {
+  max-height: 1000px;
+}
+
+.card-header {
+  cursor: pointer;
+  background-color: #e4ebfd !important;
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.completed{
+  background-color: rgb(243, 255, 224);
+}
+
+.card-header {
+  margin: 1px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+}
+
+.task-name {
+  margin: 0;
+  font-weight: bold;
+}
+
+.task-id{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.arrow.open {
+  transform: rotate(180deg);
+}
+
+.card-body {
+  padding: 10px;
+  text-align: left;
+}
+
+.desc_div{
+  background-color: #ead4af;
+  color: rgb(0, 0, 0);
+  border-radius: 5px;
+  padding: 10px;
+  font-size: large;
+  max-height: 100px;
+  overflow-x: hidden;
+  text-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.meta_div{
+  background-color: #ebebeb;
+  color: rgb(0, 0, 0);
+  border-radius: 5px;
+  padding-left: 10px;
+  font-size: large;
+}
+
+.description-input {
+  width: 89.5%; 
+  box-sizing: border-box; 
+  background-color: #ead4af;
+  color: rgb(0, 0, 0); 
+  padding: 10px;
+  border-radius: 5px; 
+  font-size: 15px;  
+  font-weight: bold;    
+  border: none; 
+  outline: none; 
+}
+
+/* create window ------------------------------------- */
+
+.modal-dialog-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.modal-content {
+  z-index: 1050;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.modal.show {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.modal-dialog {
+  max-width: 500px; 
+  width: 100%;
+}
+
+.taskname{
+  min-width:400%;
+  text-wrap: nowrap;
+  background-color: #595757;
+  color: white;
+}
+
+/* Sidebar.css */
+.sidebar {
+  position: relative;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1; 
+}
+
+.engage {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  color: white; 
+  font-size: 20px;
+}
