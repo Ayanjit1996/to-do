@@ -1,29 +1,30 @@
 import React, { useState } from 'react';
 import { MakeAuthenticatedRequest } from './APIHelper';
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://127.0.0.1:8000';
+
 function OtpModal({ isOpen, onClose, Id }) {
     const [otp, setOtp] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("OTP Submitted:", otp);
+        // console.log("OTP Submitted:", otp);
 
         try {
-
-            const response = await MakeAuthenticatedRequest('http://13.49.66.75/api/verify-otp/', 'POST', {
+            const response = await MakeAuthenticatedRequest(`${API_BASE_URL}/api/verify-otp/`, 'POST', {
                 otp: otp,
                 cred: Id
-            },false);
+            }, false);
 
-            console.log('Response:', response);
+            // console.log('Response:', response);
 
             if (response.status === 200) {
                 const { access_token, refresh_token } = response.data; 
                 localStorage.setItem('access_token', access_token);
                 localStorage.setItem('refresh_token', refresh_token);
 
-                console.log('OTP verification successful:', response.data);
+                // console.log('OTP verification successful:', response.data);
                 window.location.reload();
                 onClose(); 
             }

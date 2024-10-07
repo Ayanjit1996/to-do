@@ -1,9 +1,9 @@
-import axios from 'axios';
 import React, { useState } from 'react';
 import { MakeAuthenticatedRequest } from './APIHelper';
-import React, { useState } from 'react';
 
 function Signup({ setOtpModalOpen, setId }) {
+    const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://127.0.0.1:8000';
+
     const [clickDisable, setClickDisable] = useState(false);
     const [formData, setFormData] = useState({
         first_name: '',
@@ -35,13 +35,13 @@ function Signup({ setOtpModalOpen, setId }) {
             setId(formData.email);
 
             const response = await MakeAuthenticatedRequest(
-                'http://13.49.66.75/api/signup/',
+                `${API_BASE_URL}/api/signup/`,
                 'post',
                 formData,
                 false
             );
 
-            console.log('Signup successful:', response.data);
+            // console.log('Signup successful:', response.data);
             // alert(response.data.message);
 
             const accessToken = response.data.access_token;

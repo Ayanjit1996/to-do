@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { MakeAuthenticatedRequest } from "./APIHelper";
 
-function Sidebar({ setRefresh }) {
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://127.0.0.1:8000';
+
+function Sidebar() {
     const [userProfile, setUserProfile] = useState({
         name: "Loading...",
         username: "@Loading...",
@@ -12,7 +14,7 @@ function Sidebar({ setRefresh }) {
 
     const getPersonalinfo = async () => {
         try {
-            const response = await MakeAuthenticatedRequest('http://13.49.66.75/api/info');
+            const response = await MakeAuthenticatedRequest(`${API_BASE_URL}/api/info`);
             if (response.status === 200) {
                 setUserProfile(response.data);
             } else {
@@ -26,13 +28,13 @@ function Sidebar({ setRefresh }) {
     const deleteProfile = async () => {
         setIsDeleting(true);
         try {
-            const response = await MakeAuthenticatedRequest('http://13.49.66.75/api/deleteuser/', 'DELETE');
+            const response = await MakeAuthenticatedRequest(`${API_BASE_URL}/api/deleteuser/`, 'DELETE');
 
             if (response.status === 200) {
                 localStorage.removeItem('access_token');
                 localStorage.removeItem('refresh_token');
                 alert(response.data.message);
-                console.log(response.data);
+                // console.log(response.data);
                 window.location.reload();
             } else {
                 throw new Error("User deletion failed");

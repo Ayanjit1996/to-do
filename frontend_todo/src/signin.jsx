@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { MakeAuthenticatedRequest } from "./APIHelper";
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://127.0.0.1:8000';
+
 function Signin({ setOtpModalOpen, setId }) {
     const [credential, setCredential] = useState("email");
     const [clickDisable, setClickDisable] = useState(false);
@@ -36,13 +38,13 @@ function Signin({ setOtpModalOpen, setId }) {
             };
 
             const response = await MakeAuthenticatedRequest(
-                'http://13.49.66.75/api/login/',
+                `${API_BASE_URL}/api/login/`,
                 'POST',
                 loginData,
                 false
             );
 
-            console.log("Signin successful:", response.data);
+            // console.log("Signin successful:", response.data);
             // alert(response.data.message);
             setOtpModalOpen(true);
 
@@ -157,4 +159,5 @@ function Signin({ setOtpModalOpen, setId }) {
         </div>
     );
 }
+
 export default Signin;

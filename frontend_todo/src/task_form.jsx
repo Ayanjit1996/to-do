@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { MakeAuthenticatedRequest } from './APIHelper';
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://127.0.0.1:8000';
+
 function TaskForm({ setShowModal }) {
     const defaultStartTime = '07:00'; 
     const defaultEndTime = '20:00';
@@ -20,7 +22,7 @@ function TaskForm({ setShowModal }) {
         setIsSubmitting(true);
         try {
             const response = await MakeAuthenticatedRequest(
-                'http://13.49.66.75/api/create/',
+                `${API_BASE_URL}/api/create/`,
                 'POST',
                 { ...task },
                 true
@@ -28,7 +30,7 @@ function TaskForm({ setShowModal }) {
 
             if (response.status === 200) {
                 window.location.reload();
-                console.log("Task created successfully:", response.data);
+                // console.log("Task created successfully:", response.data);
             } else {
                 throw new Error("Task creation failed");
             }

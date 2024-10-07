@@ -1,11 +1,11 @@
 import Sidebar from "./home_sidebar";
 import Schedule from "./schedule";
-import React, { useState } from 'react';
+import React from 'react';
 
-function Homeview({taskList,setRefresh}){
+function Homeview({taskList}){
     return(
         <div className="homeview">
-            <Sidebar setRefresh={setRefresh}/>
+            <Sidebar/>
             <Schedule taskList={taskList}/>
         </div>
     )

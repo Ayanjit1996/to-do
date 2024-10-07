@@ -1,11 +1,12 @@
 import './App.css';
 import Navbar from './navbar';
 import Landing from './landingpage';
-import { useEffect, useState } from 'react';
+import { React, useEffect, useState } from 'react';
 import OtpModal from './otp';
 import Homeview from './homeview';
 import { MakeAuthenticatedRequest } from './APIHelper';
-import React, { useState } from 'react';
+
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://127.0.0.1:8000';
 
 function App() {
     const [signup, setSignup] = useState(false);
@@ -21,7 +22,7 @@ function App() {
 
     const checkAuthStatus = async () => {
         try {
-            const response = await MakeAuthenticatedRequest('http://13.49.66.75/api');
+            const response = await MakeAuthenticatedRequest(`${API_BASE_URL}/api`);
             if (response.status === 200) {
                 setIsLoggedIn(true);
                 setSignoff(true);
@@ -85,7 +86,7 @@ function App() {
                         />
                     )}
                     {isLoggedIn ? (
-                        <Homeview taskList={taskList} setRefresh={setRefresh}/>
+                        <Homeview taskList={taskList}/>
                     ) : (
                         <OtpModal 
                             isOpen={isOtpModalOpen} 
