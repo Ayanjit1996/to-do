@@ -29,14 +29,14 @@ class CustomAuthMiddleware:
                 logger.error("JWT access token expired.")
                 return JsonResponse({"message": "Access token has expired."}, status=401)
             except (InvalidToken, AuthenticationFailed, TokenError) as e:
-                logger.warning(f"JWT authentication error: {str(e)}")
+                logger.error(f"JWT authentication error: {str(e)}")
                 request.user = AnonymousUser()
         else:
             request.user = AnonymousUser()  # No token, user is anonymous
 
         # Check if the request path is protected and the user is not authenticated
         if request.path in protected_paths and not request.user.is_authenticated:
-            logger.warning(f"Unauthorized access attempt to {request.path}")
+            logger.error(f"Unauthorized access attempt to {request.path}")
             return JsonResponse({"message": "Authentication required. Please log in."}, status=401)
 
         # Log token refresh action for specified paths

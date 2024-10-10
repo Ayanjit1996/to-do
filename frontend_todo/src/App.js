@@ -30,6 +30,7 @@ function App() {
                 setSignup(false);
                 setLanding(false);
                 setTaskList(response.data);
+		console.log(response);
             }
         } catch (error) {
             setIsLoggedIn(false);
