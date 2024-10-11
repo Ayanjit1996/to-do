@@ -28,17 +28,16 @@ const refreshAccessToken = async () => {
 export const MakeAuthenticatedRequest = async (url, method = 'GET', data = null, requireAuth = true) => {
     try {
         let headers = requireAuth ? { Authorization: `Bearer ${GetJwtToken()}` } : {};
-        // console.log(url)
         if (requireAuth && !headers.Authorization) {
             throw new Error('No token found');
         }
         const config = {
             method,
-            url: `${API_BASE_URL}${url}`,  // Use the base URL from env or default to localhost
+            url: `${url}`,  // Use the base URL from env or default to localhost
             headers,
             ...(data && { data }),
         };
-
+	console.log(url);
         const response = await axios(config);
         return response;
         
@@ -50,7 +49,7 @@ export const MakeAuthenticatedRequest = async (url, method = 'GET', data = null,
                 const headers = { Authorization: `Bearer ${newAccessToken}` };
                 const config = {
                     method,
-                    url: `${API_BASE_URL}${url}`,  // Use the base URL from env or default to localhost
+                    url: `${url}`,  // Use the base URL from env or default to localhost
                     headers,
                     ...(data && { data }),
                 };
@@ -62,7 +61,7 @@ export const MakeAuthenticatedRequest = async (url, method = 'GET', data = null,
                 throw refreshError;
             }
         } else {
-            console.error('Error in authenticated request:', error.message);
+	    console.error('Error in authenticated request:', error.message);
             throw error;
         }
     }
